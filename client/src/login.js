@@ -38,7 +38,7 @@ function Login() {
             console.log("response data is:", responseData);
             const MyId = responseData.data._id;
             if (responseData.message) {
-             alert("login successful!");
+           //  alert("login successful!");
                 setError("Login Sucessfull!")
                 navigate(`/:${MyId}`, { state: { data: responseData } });
             }

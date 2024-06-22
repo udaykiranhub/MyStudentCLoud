@@ -11,10 +11,15 @@ import Toggle from './toggle';
 import SignUp from './signup';
 import People from './people';
 
-import Mydata from "./myaccount"
+
 import MyData from './myaccount';
+import Edit from './EditMyAccount';
+import LogOut from './LogOut';
+import ChangeProfile from './changeProfile';
 
+import Data from './Allusers';
 
+import SingleUserDetails from './singleuser';
 
 function App() {
   return (
@@ -36,7 +41,14 @@ function App() {
               <Route path="/signup" element={<SignUp/>}/>
               <Route path="/people" element={<People/>}/>
               <Route path="/:MyId" element={<MyData/>}/>
-              
+              <Route path="/editmyaccount" element={<Edit/>}/>
+       
+          <Route path="/logout" element={<LogOut/>}/>
+          <Route path="/ProfileChange" element={<ChangeProfile/>}/>
+
+          <Route path="/users" element={<Data/>}/>
+          <Route path="/users/:userId" element={<SingleUserDetails />} />
+          {/* <Route path="/back" element={<GoBack/>}/> */}
           
             </Routes>
           </Col>

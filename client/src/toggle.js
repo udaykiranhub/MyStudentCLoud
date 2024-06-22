@@ -92,9 +92,9 @@ function Toggle() {
         <MenuList>
           <MenuItem>   <li><Link to="/login">Login</Link></li></MenuItem>
           <MenuItem> <li><Link to="/signup">SignUp</Link></li></MenuItem>
-          <MenuItem><li><Link to="/people">peoples</Link></li></MenuItem>
+          <MenuItem><li><Link to="/">Home</Link></li></MenuItem>
 
-          <MenuItem>Messages</MenuItem>
+          <MenuItem><li><Link to="/users">users</Link></li></MenuItem>
           <MenuItem>Bookmarks</MenuItem>
           <MenuItem>Lists</MenuItem>
           <MenuItem>Profile</MenuItem>

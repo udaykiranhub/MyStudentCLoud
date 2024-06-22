@@ -13,6 +13,15 @@ var cors=require("cors");
 //Routers.........
 const signup=require("./routers/signuprouter.js");
 
+const login=require("./routers/loginrouter.js");
+
+const logout=require("./routers/logoutrouter.js");
+
+const changeProfile=require("./routers/changeprofilerouter.js");
+
+const Edit=require("./routers/accounteditrouter.js");
+
+const users=require("./routers/allusersrouter.js");
 //.....................
 //setting configuration
  app.use(express.json());
@@ -42,6 +51,13 @@ mongoose.connect(process.env.mongo_url)
 //Using Routers..........
 
 app.use("/",signup);
+app.use("/",login);
+app.use("/",logout);
+app.use("/",Edit);
+
+app.use("/",changeProfile);
+
+app.use("/",users);
 
 //.................
 
