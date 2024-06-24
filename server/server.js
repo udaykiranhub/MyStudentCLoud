@@ -22,6 +22,8 @@ const changeProfile=require("./routers/changeprofilerouter.js");
 const Edit=require("./routers/accounteditrouter.js");
 
 const users=require("./routers/allusersrouter.js");
+
+var cookie=require("./routers/cookierouter.js")
 //.....................
 //setting configuration
  app.use(express.json());
@@ -58,6 +60,8 @@ app.use("/",Edit);
 app.use("/",changeProfile);
 
 app.use("/",users);
+
+app.use("/",cookie);
 
 //.................
 

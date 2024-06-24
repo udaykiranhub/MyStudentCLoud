@@ -1,99 +1,79 @@
-import { useState,useEffect } from "react";
+import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useLocation} from "react-router-dom";
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
-import { useNavigate } from "react-router-dom";
+function ChangeProfile() {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const [id, setId] = useState(location.state?.userId || "");
+    const [count, setCount] = useState(0);
+    const [profile, setProfile] = useState(null); // State to hold selected profile image file
 
-function ChangeProfile(){
-const navigate=useNavigate();
- const [id, setId] = useState(useLocation()?.state.userId || "");
- const [count,setCount]=useState(0);
- const [profile,setProfile]=useState(); // Set initial id using userId from location
-
-
-
- console.log("user id is:", id);
- const formData=new FormData();
-const handleProfileSubmit=(event)=>{
-    event.preventDefault();
-    if(!profile){
-        alert("please select a  picture !");
-        return ;
-    }
-    setCount(1);
-    formData.append("id",id);
-    formData.append("image",profile);
-    console.log("forms data is:",formData);
-
-try{
-
-
-    async function change(){
-        const res=await fetch("http://localhost:5000/changeProfile",{
-            method:"POST",
-            body:formData
-        })
- 
-        const ans=await res.json();
-        if(ans.message){
-            alert("Changed Sucessfully!");
-            setCount(0);
-         
+    const handleProfileSubmit = (event) => {
+        event.preventDefault();
+        if (!profile) {
+            alert("Please select a picture!");
+            return;
         }
-        else{
-            alert("select proper image!");
-            setCount(0);
-        
+        setCount(1);
 
+        const formData = new FormData();
+        formData.append("id", id);
+        formData.append("image", profile);
+
+        console.log("Form data:", formData);
+
+        try {
+            async function change() {
+                const res = await fetch("http://localhost:5000/changeProfile", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const ans = await res.json();
+                if (ans.message) {
+                    alert("Changed Successfully!");
+                    setCount(0);
+                } else {
+                    alert("Select a proper image!");
+                    setCount(0);
+                }
+            }
+
+            change();
+        } catch (err) {
+            alert("Try after some time!");
         }
-    
-    }
-    
-    change();
-    }
-    catch(err){
-        alert("try after some time!");
-    }
+    };
 
-}
+    const goBack = () => {
+        navigate(-1); // Navigate back one step in history
+    };
 
-function back(){
-    window.history.back(-1);
-}
-
-
-return (
-    <>
-<div className="row">
-<div className="col--xs-8 col-sm-10 col-lg-12">
-        
-       <center>
-
- <h1>Change Your Profile.....</h1>
-
-<form onSubmit={handleProfileSubmit}>
-Profile:<input type="file" name="image" className="form-control"  onChange={(event)=>setProfile(event.target.files[0])}/>
-<br/>
-<br/>
-<input type="submit" value="Change"/>
-</form>
-<br/>
-<button onClick={back}>Go Back</button>
-{count === 1 ? (<h1>loading...</h1>) : null}
-
-
-       </center>
-       
-        </div>
-
-</div>
-
-    
-    </>
-)
-
-
-
+    return (
+        <Container>
+            <Row>
+                <Col xs={12} sm={10} lg={12} className="text-center">
+                    <h1>Change Your Profile</h1>
+                    <Form onSubmit={handleProfileSubmit}>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Profile Picture</Form.Label>
+                            <Form.Control type="file" name="image" onChange={(event) => setProfile(event.target.files[0])} />
+                        </Form.Group>
+                        <Button variant="primary" type="submit">
+                            Change
+                        </Button>
+                    </Form>
+                    <br />
+                    <Button variant="secondary" onClick={goBack}>
+                        Go Back
+                    </Button>
+                    {count === 1 && <h3>Loading...</h3>}
+                </Col>
+            </Row>
+        </Container>
+    );
 }
 
 export default ChangeProfile;

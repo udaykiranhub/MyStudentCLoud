@@ -4,13 +4,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Person } from 'react-bootstrap-icons';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 
+import ColorSpinner from "./colorSpinner";
+
+import {backend_url} from "./path";
+
 function SignUp() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [selectedImage, setSelectedImage] = useState(null);
 
-
+const [load,setLoad]=useState(false);
   const [Error,setError]=useState(null);
 
   const handleImageChange = (event) => {
@@ -25,7 +29,8 @@ function SignUp() {
       setError("Fill the Details!");
       return;
     }
-  
+
+    setLoad(true);
     const formData = new FormData();
     formData.append('name', name);
     formData.append('email', email);
@@ -33,7 +38,7 @@ function SignUp() {
     formData.append('image', selectedImage);
     console.log("form data is:", formData);
     try {
-      const response = await fetch('http://localhost:5000/signup', {
+      const response = await fetch(`${backend_url}/signup`, {
         method: 'POST',
         body: formData,
       });
@@ -41,14 +46,17 @@ function SignUp() {
       const responseData = await response.json();
   
       if (responseData.success) {
+        setLoad(false);
     // alert(responseData.message);
        setError(responseData.message);
       } else {
    // alert(responseData.message);
+   setLoad(false);
      setError(responseData.message);
       }
     } catch (error) {
      // alert('An error occurred. Please try again later.');
+     setLoad(false);
      setError("Please try again later")
     }
   };
@@ -59,7 +67,7 @@ function SignUp() {
 
   return (
     <Container className="d-flex justify-content-center">
-     
+
       <Row className="w-50">
     
         <Col>
@@ -114,6 +122,7 @@ function SignUp() {
                   onChange={handleImageChange}
                required />
               </Form.Group>
+              <center>  {load &&  <ColorSpinner/>}</center>
               <br/>
               <Button variant="info" type="submit" className="w-100">Sign Up</Button>
             </Form>

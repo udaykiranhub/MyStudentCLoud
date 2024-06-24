@@ -4,12 +4,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 
+import ColorSpinner from "./colorSpinner";
+
+import {backend_url} from "./path";
+
 function Data() {
   const [users, setData] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
   const navigate = useNavigate();
+  const [load,setLoad]=useState(true);
 
-  const url = "http://localhost:5000/users";
+  const url = `${backend_url}/users`;
 
   const fetchData = async () => {
     try {
@@ -19,6 +24,7 @@ function Data() {
         throw new Error('Network response was not ok');
       }
       const data = await response.json();
+      setLoad(false);
         setData(data.data);
         console.log("data is:"+data);
     } catch (error) {
@@ -33,6 +39,7 @@ function Data() {
         throw new Error('Network response was not ok');
       }
       const user = await response.json();
+    
       setSelectedUser(user);
       return user;
     } catch (error) {
@@ -60,9 +67,11 @@ function Data() {
 
   return (
     <Container className="mt-5">
-      <h1 style={{color:"white",backgroundColor:"black"}}><center >All Users</center></h1>
-      <Row xs={1} md={2} lg={3} className="g-4">
     
+      <h1 style={{color:"white",backgroundColor:"black"}}><center >All Users</center></h1>
+   <center> {load && <ColorSpinner/>} </center>
+      <Row xs={1} md={2} lg={3} className="g-4">
+ 
         {users.map((user) => (
           <Col key={user._id}>
             <Card className="h-100">

@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+import logo from "./studentcloud.png";
+
+import { useNavigate } from 'react-router-dom';
 
 // Importing Page Components
 import Login from "./login";
@@ -21,8 +25,16 @@ import Data from './Allusers';
 
 import SingleUserDetails from './singleuser';
 
+
+import Footer from './footer';
+import Home from './home';
+
 function App() {
+
+
+
   return (
+    <div>
     <Router>
       
       <Container fluid>
@@ -34,7 +46,6 @@ function App() {
             <Toggle/>
                    
             </nav>
-        
        
             <Routes>
               <Route path="/login" element={<Login />} />
@@ -48,13 +59,23 @@ function App() {
 
           <Route path="/users" element={<Data/>}/>
           <Route path="/users/:userId" element={<SingleUserDetails />} />
+
+          <Route path="/" element={<Home/>}/>
           {/* <Route path="/back" element={<GoBack/>}/> */}
           
             </Routes>
+    
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+          
+          <Footer/>
           </Col>
         </Row>
       </Container>
     </Router>
+    </div>
   );
 }
 

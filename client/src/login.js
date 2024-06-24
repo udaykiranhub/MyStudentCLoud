@@ -1,17 +1,51 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useNavigate } from "react-router-dom";
+import { json, useNavigate } from "react-router-dom";
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import LoadingSpinner from "./spinner";
 
+import Cookies from  "js-cookie";
 
+import { backend_url } from "./path";
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [Error,setError]=useState(null);
     const navigate = useNavigate();
+    const [load,setLoad]=useState(false);
+ 
+    const data =  Cookies.get("user"); // Retrieve the cookie data    
+    // Parse the JSON-encoded data
+//Cookies is presant or not checking
+if(data){
+    const userData = JSON.parse(data);
+  alert("Cookie is alive")
+async function getdata(){
+    console.log("Cookie id is:"+userData.user_id);
+    const  user = await fetch(`${backend_url}/cookie`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ id: userData.user_id }),
+     
+        
+    });
+    var res=await user.json();
+   console.log("Cooke backend data is:"+res.data._id);
+    navigate(`/:${res.data._id}`, { state: {data:res}}); //
+    
+}
+getdata();       
+ 
+}
+//if cookies is alive user not nedd to login again
+   
 
     async function handleSubmit(event) {
         event.preventDefault();
+
+      
 
         if (!email || !password) {
           //  alert('Please fill in all fields !!!');
@@ -28,7 +62,8 @@ function Login() {
         };
 
         try {
-            const response = await fetch("http://localhost:5000/login", {
+            setLoad(true);
+            const response = await fetch(`${backend_url}/login`, {
                 method: 'POST',
                 body: JSON.stringify(data),
                 headers: { 'Content-Type': 'application/json' }
@@ -38,25 +73,31 @@ function Login() {
             console.log("response data is:", responseData);
             const MyId = responseData.data._id;
             if (responseData.message) {
+                const expires = new Date(Date.now() + 60 * 60 * 1000); // Calculate expiration in milliseconds
+                Cookies.set("user",JSON.stringify({"user_id":MyId}),{expires});
+           
            //  alert("login successful!");
-                setError("Login Sucessfull!")
+                setError("Login Sucessfull!");
+                setLoad(false);
                 navigate(`/:${MyId}`, { state: { data: responseData } });
             }
 
         } catch (err) {
         //   alert("Invalid Credentials!!");
+        setLoad(false);
           setError("Invalid Credentials!");
         }
     }
 
     return (
+    
         <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
             <Row className="w-50">
                 <Col>
-                
+      
       <center> <h4  variant="primary" className="text text-success"
        style={{heigth:"10px",width:"100%",border:"1px solid black",backgroundColor:"lightgreen"}}>{Error}</h4></center>
-
+      
 
                     <div className="border p-4 rounded shadow">
                         <h1 className="text-center mb-4">Login To Your Account!</h1>
@@ -83,9 +124,13 @@ function Login() {
                             <br />
                             <Button variant="dark" type="submit" className="w-100">Login</Button>
                         </Form>
+                 
                     </div>
                 </Col>
+                {load && <LoadingSpinner/>}
+                
             </Row>
+     
         </Container>
     );
 }

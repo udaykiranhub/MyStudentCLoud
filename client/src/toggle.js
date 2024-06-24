@@ -4,6 +4,9 @@ import styled from 'styled-components';
 
 import {Link} from "react-router-dom";
 
+import { Nav } from 'react-bootstrap';
+
+
 const ToggleContainer = styled.div`
   position: relative;
 `;
@@ -89,16 +92,19 @@ function Toggle() {
         <Hamburger toggled={isOpen} toggle={setOpen} />
       </HamburgerContainer>
       <Sidebar isOpen={isOpen}>
-        <MenuList>
+        <MenuList style={{backgroundColor:"black"}}>
+        <MenuItem><li ><Link to="/">Home</Link></li></MenuItem>
+        <MenuItem><li><Link to="/users">users</Link></li></MenuItem>
           <MenuItem>   <li><Link to="/login">Login</Link></li></MenuItem>
           <MenuItem> <li><Link to="/signup">SignUp</Link></li></MenuItem>
-          <MenuItem><li><Link to="/">Home</Link></li></MenuItem>
+          
 
           <MenuItem><li><Link to="/users">users</Link></li></MenuItem>
-          <MenuItem>Bookmarks</MenuItem>
-          <MenuItem>Lists</MenuItem>
-          <MenuItem>Profile</MenuItem>
-          <MenuItem>More</MenuItem>
+          <MenuItem><li ><Link to="/">Home</Link></li></MenuItem>
+          <MenuItem><li ><Link to="/">Home</Link></li></MenuItem>
+          <MenuItem><li ><Link to="/">Home</Link></li></MenuItem>
+       
+      
         </MenuList>
       </Sidebar>
     </ToggleContainer>

@@ -1,18 +1,20 @@
 import React, { useEffect } from "react";
 import { useLocation ,useNavigate} from "react-router-dom";
 
+import { backend_url } from "./path";
 function LogOut() {
   const location = useLocation();
   const userId = location.state?.userId;
 const navigate=useNavigate();
   
 
+
   useEffect(() => {
     async function logout() {
     
       try {
      
-        const req = await fetch("http://localhost:5000/logout", {
+        const req = await fetch(`${backend_url}/logout`, {
           method: "POST",
           body:JSON.stringify({userId}),
           headers: { "Content-Type": "application/json" }
