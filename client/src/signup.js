@@ -68,9 +68,9 @@ const [load,setLoad]=useState(false);
   return (
     <Container className="d-flex justify-content-center">
 
-      <Row className="w-50">
+      {/* <Row className="w-50">
     
-        <Col>
+        <Col> */}
     
           <div className="signup-form mt-5 p-4 border rounded shadow">
             <h1><Person/></h1>
@@ -129,8 +129,8 @@ const [load,setLoad]=useState(false);
             <br/>
             <Button variant="danger" onClick={Back} className="w-100">Back</Button>
           </div>
-        </Col>
-      </Row>
+        {/* </Col>
+      </Row> */}
     </Container>
   );
 }

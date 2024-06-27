@@ -100,9 +100,9 @@ function Toggle() {
           
 
           <MenuItem><li><Link to="/users">users</Link></li></MenuItem>
+          <MenuItem><li ><Link to="/search">Search</Link></li></MenuItem>
           <MenuItem><li ><Link to="/">Home</Link></li></MenuItem>
-          <MenuItem><li ><Link to="/">Home</Link></li></MenuItem>
-          <MenuItem><li ><Link to="/">Home</Link></li></MenuItem>
+          <MenuItem><li ><Link to="/about">About us</Link></li></MenuItem>
        
       
         </MenuList>

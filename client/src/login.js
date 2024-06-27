@@ -92,14 +92,15 @@ getdata();
     return (
     
         <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
-            <Row className="w-50">
+            {/* <Row className="w-50">
                 <Col>
-      
-      <center> <h4  variant="primary" className="text text-success"
-       style={{heigth:"10px",width:"100%",border:"1px solid black",backgroundColor:"lightgreen"}}>{Error}</h4></center>
-      
+       */}
+  
 
                     <div className="border p-4 rounded shadow">
+                    <center> <h4  variant="primary" className="text text-success"
+       style={{heigth:"10px",width:"100%",border:"1px solid black",backgroundColor:"lightgreen"}}>{Error}</h4></center>
+      
                         <h1 className="text-center mb-4">Login To Your Account!</h1>
                         <Form onSubmit={handleSubmit}>
                             <Form.Group controlId="formEmail">
@@ -126,11 +127,11 @@ getdata();
                         </Form>
                  
                     </div>
-                </Col>
+                {/* </Col> */}
                 {load && <LoadingSpinner/>}
                 
-            </Row>
-     
+            {/* // </Row>
+      */}
         </Container>
     );
 }

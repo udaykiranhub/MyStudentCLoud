@@ -24,10 +24,13 @@ import ChangeProfile from './changeProfile';
 import Data from './Allusers';
 
 import SingleUserDetails from './singleuser';
+import About from './about';
 
 
 import Footer from './footer';
 import Home from './home';
+
+import Search from './search';
 
 function App() {
 
@@ -59,8 +62,10 @@ function App() {
 
           <Route path="/users" element={<Data/>}/>
           <Route path="/users/:userId" element={<SingleUserDetails />} />
+          <Route path="/search" element={<Search/>}/>
 
           <Route path="/" element={<Home/>}/>
+          <Route path="about" element={<About/>}/>
           {/* <Route path="/back" element={<GoBack/>}/> */}
           
             </Routes>
