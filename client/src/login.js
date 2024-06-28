@@ -133,7 +133,11 @@ getdata();
                             </Form.Group>
                             <br />
                             <Button variant="dark" type="submit" className="w-100">Login</Button>
+<<<<<<< HEAD
                             {load && <LoadingSpinner/>}
+=======
+                                          {load && <LoadingSpinner/>}
+>>>>>>> fb6978c76e471dca70e00fc249d627a5fe0ece66
                         </Form>
                  
                     </div>
