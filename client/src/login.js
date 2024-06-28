@@ -124,11 +124,12 @@ getdata();
                             </Form.Group>
                             <br />
                             <Button variant="dark" type="submit" className="w-100">Login</Button>
+                                          {load && <LoadingSpinner/>}
                         </Form>
                  
                     </div>
                 {/* </Col> */}
-                {load && <LoadingSpinner/>}
+              
                 
             {/* // </Row>
       */}
