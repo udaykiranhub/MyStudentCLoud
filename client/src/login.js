@@ -19,8 +19,9 @@ function Login() {
 //Cookies is presant or not checking
 if(data){
     const userData = JSON.parse(data);
-  alert("Cookie is alive")
+//   alert("Cookie is alive")
 async function getdata(){
+    try{
     console.log("Cookie id is:"+userData.user_id);
     const  user = await fetch(`${backend_url}/cookie`, {
         method: "POST",
@@ -32,8 +33,16 @@ async function getdata(){
         
     });
     var res=await user.json();
+    if(!res.message){
+        navigate("/");
+    }
    console.log("Cooke backend data is:"+res.data._id);
+   alert("Cookie is alive")
     navigate(`/:${res.data._id}`, { state: {data:res}}); //
+}
+catch(err){
+    alert("You Are Already Log out!");
+}
     
 }
 getdata();       
@@ -124,11 +133,12 @@ getdata();
                             </Form.Group>
                             <br />
                             <Button variant="dark" type="submit" className="w-100">Login</Button>
+                            {load && <LoadingSpinner/>}
                         </Form>
                  
                     </div>
                 {/* </Col> */}
-                {load && <LoadingSpinner/>}
+              
                 
             {/* // </Row>
       */}

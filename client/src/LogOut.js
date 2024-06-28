@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation ,useNavigate} from "react-router-dom";
 
 import { backend_url } from "./path";
+import Notification from "./notification";
 function LogOut() {
   const location = useLocation();
+  const [showNotification,setShowNotification]=useState(true);
   const userId = location.state?.userId;
 const navigate=useNavigate();
   
@@ -26,6 +28,7 @@ const navigate=useNavigate();
         if (res.message) {
 
           alert("Log Out successful!");
+          setShowNotification(false);
          navigate("/");
 
         } 
@@ -47,7 +50,9 @@ const navigate=useNavigate();
 
   return (
     <center>
-      <h1>Log Out! {userId ? `User ID: ${userId}` : "No user ID provided."}</h1>
+      <h4>Log Out Sucessfully!</h4>
+      
+      {showNotification && <Notification message="Sucessfully log out!" type="error" />}
     </center>
   );
 }
