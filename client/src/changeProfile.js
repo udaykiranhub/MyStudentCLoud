@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { backend_url } from "./path";
 
 function ChangeProfile() {
     const navigate = useNavigate();
@@ -26,7 +27,7 @@ function ChangeProfile() {
 
         try {
             async function change() {
-                const res = await fetch("http://localhost:5000/changeProfile", {
+                const res = await fetch(`${backend_url}/changeProfile`, {
                     method: "POST",
                     body: formData
                 });

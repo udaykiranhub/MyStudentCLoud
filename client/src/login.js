@@ -136,7 +136,10 @@ getdata();
 
                             {load && <LoadingSpinner/>}
 
-                                          {load && <LoadingSpinner/>}                </Form>
+                                          {/* {load && <LoadingSpinner/>} */}
+                                          
+                                          
+                          </Form>
                  
                     </div>
                 {/* </Col> */}
