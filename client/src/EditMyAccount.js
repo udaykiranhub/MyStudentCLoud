@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import Notification from "./notification";
 
+import { backend_url } from "./path";
+
 function Edit() {
     const [bio, setBio] = useState("");
     const [name, setName] = useState("");
@@ -46,7 +48,7 @@ function Edit() {
         try {
                   
   
-            const response = await fetch("http://localhost:5000/edit", {
+            const response = await fetch(`${backend_url}/edit`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" }, // Explicitly set header
                 body: JSON.stringify(data),
