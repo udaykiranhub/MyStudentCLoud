@@ -5,7 +5,8 @@ import styled from 'styled-components';
 import {Link} from "react-router-dom";
 
 import { Nav } from 'react-bootstrap';
-
+import {Button} from "react-bootstrap";
+import {House,PersonAdd,PersonCheck,PeopleFill, PeaceFill, Search,ChatFill} from "react-bootstrap-icons";
 
 const ToggleContainer = styled.div`
   position: relative;
@@ -93,16 +94,24 @@ function Toggle() {
       </HamburgerContainer>
       <Sidebar isOpen={isOpen}>
         <MenuList style={{backgroundColor:"black"}}>
-        <MenuItem><li ><Link to="/">Home</Link></li></MenuItem>
-        <MenuItem><li><Link to="/users">users</Link></li></MenuItem>
-          <MenuItem>   <li><Link to="/login">Login</Link></li></MenuItem>
-          <MenuItem> <li><Link to="/signup">SignUp</Link></li></MenuItem>
+        <MenuItem><li><Link to="/"><House/></Link></li><p style={{color:"white"}}>Home</p></MenuItem>
+        <MenuItem><li><Link to="/signup"><PersonAdd/></Link></li><p style={{color:"white"}}>SignUp</p></MenuItem>
+       
+        <MenuItem><li><Link to="/users"><PeopleFill/></Link></li><p style={{color:"white"}}>Users</p></MenuItem>
+
+        {/* <MenuItem><li><Link to="/users">users</Link></li></MenuItem> */}
+          {/* <MenuItem><li><Link to="/login">Login</Link></li></MenuItem> */}
+          <MenuItem><li><Link to="/login"><PersonCheck/></Link></li><p style={{color:"white"}}>Login</p></MenuItem>
+          {/* <MenuItem><li><Link to="/signup">SignUp</Link></li></MenuItem> */}
           
 
-          <MenuItem><li><Link to="/users">users</Link></li></MenuItem>
-          <MenuItem><li ><Link to="/search">Search</Link></li></MenuItem>
-          <MenuItem><li ><Link to="/">Home</Link></li></MenuItem>
-          <MenuItem><li ><Link to="/about">About us</Link></li></MenuItem>
+          {/* <MenuItem><li><Link to="/users">users</Link></li></MenuItem> */}
+          <MenuItem><li><Link to="/search"><Search/></Link></li><p style={{color:"white"}}>Search</p></MenuItem>
+          {/* <MenuItem><li ><Link to="/search">Search</Link></li></MenuItem> */}
+
+          {/* <MenuItem><li ><Link to="/">Home</Link></li></MenuItem> */}
+          {/* <MenuItem><li ><Link to="/about">About us</Link></li></MenuItem> */}
+          <MenuItem><li><Link to="/about"><ChatFill/></Link></li><p style={{color:"white"}}>About</p></MenuItem>
        
       
         </MenuList>

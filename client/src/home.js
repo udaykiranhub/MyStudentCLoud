@@ -1,12 +1,19 @@
 import React from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button ,Card} from 'react-bootstrap';
 import { motion } from 'framer-motion';
-
+import "./home.css"
+import HomeCards from './homecard';
 const Home = () => {
   return (
+  
+    <div className='title-container'>
+  <center>  <div className='title'><h1>Student CLoud!</h1></div></center>
     <div className="home-container" style={homeContainerStyles}>
+
       <Container fluid className="home-content">
+
         <Row className="justify-content-center align-items-center text-center" style={{ height: '100vh' }}>
+      
           <Col xs={12} sm={10} md={8} lg={6}>
             <motion.h1
               className="animated-text"
@@ -15,7 +22,7 @@ const Home = () => {
               transition={{ duration: 1, ease: "easeOut" }}
               style={h1Styles}
             >
-             <h3>WeLcOmE</h3>
+             <h2 style={{color:"black"}}>WeLcOmE</h2>
      
             </motion.h1>
             <motion.p
@@ -25,7 +32,7 @@ const Home = () => {
               transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
               style={pStyles}
             >
-             Students Interaction Platform!
+     <h4 style={{color:"black"}}>Students Interaction Platform!</h4>
             </motion.p>
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -34,9 +41,13 @@ const Home = () => {
             >
 
             </motion.div>
+            <HomeCards/>
           </Col>
-        </Row>
+          </Row>
+    
       </Container>
+
+    </div>
     </div>
   );
 };

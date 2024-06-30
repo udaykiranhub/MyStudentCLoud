@@ -82,10 +82,11 @@ function Edit() {
                     <h1 className="text-center my-4">Edit Your Details</h1>
                     <Form onSubmit={(event) => { handleSubmit(event) }}>
                         <Form.Group className="mb-3" controlId="formName">
-                            <Form.Label>Name</Form.Label>
-                            <Form.Control type="text" placeholder="Enter Your Name" onChange={(event) => { setName(event.target.value) }} />
+                    
+               <Form.Label>Name</Form.Label>
+                       <Form.Control type="text" placeholder="Enter Your Name" onChange={(event) => { setName(event.target.value) }} />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBio">
+            <Form.Group className="mb-3" controlId="formBio">
                             <Form.Label>Bio</Form.Label>
                             <Form.Control type="text" placeholder="Fill Bio" onChange={(event) => setBio(event.target.value)} />
                         </Form.Group>

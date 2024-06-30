@@ -72,12 +72,17 @@ function App() {
     
           </Col>
         </Row>
-        <Row>
-          <Col>
-          
-          <Footer/>
-          </Col>
-        </Row>
+
+
+  <Row>
+<Col>
+
+<Footer/>
+
+</Col>
+        
+  </Row>
+  
       </Container>
     </Router>
     </div>

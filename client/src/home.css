@@ -1,0 +1,28 @@
+
+
+.title {
+    display: none; /* Default to hidden */
+    font-variant: small-caps;
+
+    text-shadow:2px 2px  rgb(0, 0, 0);
+   
+
+    
+
+  }
+
+  .title:hover{
+    color: red;
+    height: 20px;
+
+
+  }
+
+  @media screen and (max-width: 400px) {
+    .title {
+      display:inline-flex; 
+    /* Show when screen size is 400px or less */
+    }
+
+  }
+  
