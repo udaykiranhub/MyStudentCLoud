@@ -33,6 +33,7 @@ const Home = () => {
               style={pStyles}
             >
      <h4 style={{color:"black"}}>Students Interaction Platform!</h4>
+     <h6 style={{color:"black"}} > Uday kiran </h6>
             </motion.p>
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
