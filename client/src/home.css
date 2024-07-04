@@ -17,12 +17,62 @@
 
 
   }
+  .drop{
+    position: relative;
+    visibility: hidden;
+    /* transition:width 2s,height 2s; */
+    animation-name: text-drop;
+    animation-duration:2s;
+ 
+  }
+.mycard{
+  position: relative;
+animation-name:mycard ;
+animation-duration: 5s;
+
+
+}
+
+
 
   @media screen and (max-width: 700px) {
     .title {
       display:inline-flex; 
     /* Show when screen size is 400px or less */
     }
+    .drop{
+     visibility: visible;
+    }
+    @keyframes  text-drop{
+ 
+      0% {
+        top: 0px;
+        font-size: 30px; /* Initial font size */
+        color:blue; 
+        transform: rotateY(150deg);   /* Initial color */
+      }
+      100% {
+        top: 50px;
+        font-size: 100px; /* Final font size */
+        color: rgb(255, 0, 217);      /* Final color */
+      }
+
+
+    }
+    @keyframes  mycard {
+
+      0%{
+        top: 0px;
+      
+        transform: rotateY(150deg);   /* Initial color */
+      }
+      100% {
+        top: 50px;
+   /* Final color */
+      }
+      
+    }
+  
 
   }
   

@@ -2,10 +2,12 @@ import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import StudentImg from './studentcloud.jpeg';
 import educationImage from './brain.jpeg';
+import "./card.css";
 
 const HomeCards = () => {
   return (
-    <Container style={{position:"relative"}}>
+  <div className='mycard'>
+      <Container style={{position:"relative"}}>
       <Row className="justify-content-center">
         <Col >
           <Card style={{ width: '100%', margin: 'auto' }}>
@@ -20,6 +22,7 @@ const HomeCards = () => {
         </Col>
     </Row>
     </Container>
+  </div>
   );
 };
 

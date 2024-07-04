@@ -1,0 +1,34 @@
+ .mycard{
+position: relative;
+/* background-color: rgb(13, 12, 12); */
+animation-name:mycard ;
+animation-duration: 1s;
+
+
+  }
+
+
+
+  @media screen and (min-width: 300px) {
+
+
+    @keyframes  mycard {
+
+      0%{
+        top: 0px;
+        background-color: rgb(19, 2, 202);
+    
+      
+        transform: rotateY(150deg);   /* Initial color */
+      }
+      100% {
+        top: 10px;
+        background-color: black;
+
+      }
+      
+    }
+  
+
+  }
+  

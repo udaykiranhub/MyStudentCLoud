@@ -7,9 +7,12 @@ const Home = () => {
   return (
   
     <div className='title-container'>
-  <center>  <div className='title'><h1>Student CLoud!</h1></div></center>
+  <center>  <div className='title'><h1>Student CLoud!</h1></div>
+  
+  <div className='drop'><h4>Interaction</h4></div>
+  </center>
+ 
     <div className="home-container" style={homeContainerStyles}>
-
       <Container fluid className="home-content">
 
         <Row className="justify-content-center align-items-center text-center" style={{ height: '100vh' }}>
@@ -42,7 +45,9 @@ const Home = () => {
             >
 
             </motion.div>
-            <HomeCards/>
+        
+           <HomeCards/>
+        
           </Col>
           </Row>
     

@@ -2,6 +2,8 @@ import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 
+import "./about.css";
+
 const About = () => {
   return (
     <div className="about-container" style={aboutContainerStyles}>
@@ -32,7 +34,7 @@ const About = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Card style={cardStyles}>
+              <Card style={cardStyles} className='card1'>
                 <Card.Body>
                   <Card.Title>Our Mission</Card.Title>
                   <Card.Text>
@@ -47,7 +49,7 @@ const About = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Card style={cardStyles}>
+              <Card style={cardStyles} className='card2'>
                 <Card.Body>
                   <Card.Title>Our Vision</Card.Title>
                   <Card.Text>
