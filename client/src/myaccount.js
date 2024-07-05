@@ -7,23 +7,32 @@ import { useNavigate } from "react-router-dom";
 import "./App.css";
 import GoBack from "./goback";
 import { Container, Row, Col, Button, Image, Card } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
+
+import {Link} from "react-router-dom"
 
 //notification creation
 import Notification from "./notification";
+
+import Opinion from "./opinion";
 
 function MyData() {
  const [showNotification,setShowNotification]=useState(false);
  const [status,setStatus]=useState(null);
  const [mess,setMess]=useState(null);
 
+
+
     const location = useLocation();
     const user = location.state?.data;
     const navigate = useNavigate();
-
+  
     console.log("user is:", user);
+
     const date = new Date(user.data.dob);
     console.log("user data  in myaccount is:"+user);
+
 useEffect(()=>{
 setShowNotification(true);
 },[])
@@ -48,10 +57,14 @@ setShowNotification(true);
         navigate("/ProfileChange", { state: { userId } })
     }
 
+
+
+ 
     function handleGoBack() {
 
         navigate("/");
     }
+
 
     return (
         <Container>
@@ -95,7 +108,7 @@ setShowNotification(true);
                                         </Card>
                                     </Col>
                                   
-                            
+                
                                     {/* Additional details box */}
                             
                                     <Col xs={12} lg={4}>
@@ -116,6 +129,7 @@ setShowNotification(true);
                                                 <Card.Title>Settings:</Card.Title>
                                                 <Button variant="outline-dark" size="sm" onClick={() => handleClick(user.data._id)}><i><PencilSquare /></i> Edit</Button>
                                                 <br />
+                                                {/* {setUserid(user.data._id)} */}
                                                 <br />
                                                 <Button variant="outline-dark" size="sm" onClick={() => handleLogOut(user.data._id)}><i><Trash /></i> LogOut</Button>
                                             </Card.Body>
@@ -127,7 +141,18 @@ setShowNotification(true);
                         </div>
                     </Col>
                 </Row>
-                <Button variant="dark" onClick={handleGoBack}>bAcK</Button>
+        
+{/* input field for the Messaging */}
+<br/>
+<br/>
+<Opinion data={user.data._id}/>
+
+{/* ...... */}
+
+<br/>
+<br/>
+
+    <Button variant="dark" onClick={handleGoBack}>bAcK</Button>
     
             </center>
    

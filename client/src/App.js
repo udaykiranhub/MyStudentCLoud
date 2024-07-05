@@ -32,6 +32,8 @@ import Home from './home';
 
 import Search from './search';
 
+import Opinion from './opinion';
+
 function App() {
 
 
@@ -67,6 +69,7 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="about" element={<About/>}/>
           {/* <Route path="/back" element={<GoBack/>}/> */}
+          <Route path="/opinion" element={<Opinion/>}/>
           
             </Routes>
     

@@ -26,6 +26,8 @@ const users=require("./routers/allusersrouter.js");
 var cookie=require("./routers/cookierouter.js")
 
 var search=require("./routers/searchskillrouter.js");
+
+var opinion=require("./routers/opinionrouter.js");
 //.....................
 //setting configuration
  app.use(express.json());
@@ -66,7 +68,7 @@ app.use("/",users);
 app.use("/",cookie);
 
 app.use("/",search);
-
+app.use("/",opinion);
 //.................
 
  app.listen(5000,function(err){
