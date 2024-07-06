@@ -16,12 +16,15 @@ import {Link} from "react-router-dom"
 import Notification from "./notification";
 
 import Opinion from "./opinion";
+import Mymessages from "./mymessages";
 
 function MyData() {
  const [showNotification,setShowNotification]=useState(false);
  const [status,setStatus]=useState(null);
  const [mess,setMess]=useState(null);
 
+
+ const[mymessages,setMymessages]=useState(false);
 
 
     const location = useLocation();
@@ -35,6 +38,7 @@ function MyData() {
 
 useEffect(()=>{
 setShowNotification(true);
+
 },[])
 
     const handleClick = (userId) => {
@@ -143,11 +147,14 @@ setShowNotification(true);
                 </Row>
         
 {/* input field for the Messaging */}
+{mymessages && <Mymessages data={user.data._id} />}
+<Button variant="info" onClick={(e)=>{setMymessages(true)}}>Show messages</Button>
 <br/>
 <br/>
 <Opinion data={user.data._id}/>
 
 {/* ...... */}
+
 
 <br/>
 <br/>

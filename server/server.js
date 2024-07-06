@@ -30,6 +30,10 @@ var search=require("./routers/searchskillrouter.js");
 var opinion=require("./routers/opinionrouter.js");
 
 var getopinions=require("./routers/getopinionsrouter.js");
+
+var mymessages=require("./routers/mymessagesrouter.js");
+
+var deletemessage=require("./routers/deletemesssgerouter.js");
 //.....................
 //setting configuration
  app.use(express.json());
@@ -73,6 +77,10 @@ app.use("/",search);
 app.use("/",opinion);
 
 app.use("/",getopinions);
+
+app.use("/",mymessages);
+
+app.use("/",deletemessage)
 //.................
 
  app.listen(5000,function(err){
