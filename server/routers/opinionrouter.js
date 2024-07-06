@@ -2,6 +2,7 @@ var express=require("express");
 var router=express.Router();
 
 var opinion=require("../schemas/opinionschema");
+const signupschema = require("../schemas/signupschema");
 
 router.post("/sendopinion",async function(req,res){
     
@@ -9,6 +10,7 @@ try{
 
 
  var find=await opinion.findOne({id:req.body.id})
+
  if(find){
     var result = await opinion.updateOne(
         { id: req.body.id },
@@ -20,8 +22,11 @@ try{
     }
  
  else{
+var find=await signupschema.findOne({_id:req.body.id});
 
-var data=await opinion({messages:req.body.message,id:req.body.id})
+var {name,image}=find;
+
+var data=await opinion({messages:req.body.message,id:req.body.id,name:name,profile:image})
 data.save()
 .then(function(data){
     console.log("opinion Data saved sucessfully!");

@@ -6,6 +6,12 @@ var schema=mongoose.Schema({
     },
     messages:{
         type:Array
+    },
+    name:{
+        type:String
+    },
+    profile:{
+        type:String
     }
 })
 

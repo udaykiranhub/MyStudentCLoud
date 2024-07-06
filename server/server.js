@@ -28,6 +28,8 @@ var cookie=require("./routers/cookierouter.js")
 var search=require("./routers/searchskillrouter.js");
 
 var opinion=require("./routers/opinionrouter.js");
+
+var getopinions=require("./routers/getopinionsrouter.js");
 //.....................
 //setting configuration
  app.use(express.json());
@@ -69,6 +71,8 @@ app.use("/",cookie);
 
 app.use("/",search);
 app.use("/",opinion);
+
+app.use("/",getopinions);
 //.................
 
  app.listen(5000,function(err){

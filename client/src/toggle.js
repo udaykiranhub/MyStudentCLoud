@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 
 import { Nav } from 'react-bootstrap';
 import {Button} from "react-bootstrap";
-import {House,PersonAdd,PersonCheck,PeopleFill, PeaceFill, Search,ChatFill} from "react-bootstrap-icons";
+import {House,PersonAdd,PersonCheck,PeopleFill, PeaceFill, Search,ChatFill,Messenger} from "react-bootstrap-icons";
 
 const ToggleContainer = styled.div`
   position: relative;
@@ -113,7 +113,8 @@ function Toggle() {
           {/* <MenuItem><li ><Link to="/about">About us</Link></li></MenuItem> */}
           <MenuItem><li><Link to="/about"><ChatFill/></Link></li><p style={{color:"white"}}>About</p></MenuItem>
        
-      
+          <MenuItem><li><Link to="/getopinions"><Messenger/></Link></li><p style={{color:"white"}}>Messages</p></MenuItem>
+     
         </MenuList>
       </Sidebar>
     </ToggleContainer>

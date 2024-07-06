@@ -34,6 +34,8 @@ import Search from './search';
 
 import Opinion from './opinion';
 
+import Getopinions from './getopinions';
+
 function App() {
 
 
@@ -70,6 +72,7 @@ function App() {
           <Route path="about" element={<About/>}/>
           {/* <Route path="/back" element={<GoBack/>}/> */}
           <Route path="/opinion" element={<Opinion/>}/>
+          <Route path="/getopinions" element={<Getopinions/>}/>
           
             </Routes>
     
