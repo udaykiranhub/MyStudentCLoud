@@ -23,9 +23,13 @@ try{
  
  else{
 var find=await signupschema.findOne({_id:req.body.id});
-
-var {name,image}=find;
-
+console.log("finding data is:"+find)
+if(find){
+    var {name,image}=find;
+}
+else{
+    return res.status(404).json({message:false})
+}
 var data=await opinion({messages:req.body.message,id:req.body.id,name:name,profile:image})
 data.save()
 .then(function(data){
