@@ -13,7 +13,7 @@ const [load,setLoad]=useState(false);
 
   console.log("Opinion data is: " + data);
   const [message, setMessage] = useState('');
-  const [noti,setNoti]=useState(true)
+  const [noti,setNoti]=useState(false)
 useEffect(()=>{
 setNoti(false)
 },[])
@@ -32,6 +32,7 @@ setNoti(false)
       if (result.message) {
         setLoad(false)
         setNoti(true)
+
         alert('Message sent successfully!');
       } 
      setNoti(false)
@@ -46,7 +47,7 @@ setNoti(false)
 
   return (
 <>
-{/* {noti && <Notification message="Sucessfully Login to your Account!" type="success" />} */}
+
 
     <Container className="mt-5">
       <Row className="justify-content-md-center">
@@ -74,6 +75,7 @@ setNoti(false)
           </Form>
         </Col>
       </Row>
+{/* <p>      {noti && <Notification message="Message sent!" type="success" />}</p> */}
     </Container>
     </>
   );

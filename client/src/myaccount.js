@@ -148,6 +148,7 @@ setShowNotification(true);
         
 {/* input field for the Messaging */}
 {mymessages && <Mymessages data={user.data._id} />}
+<br/>
 <Button variant="info" onClick={(e)=>{setMymessages(true)}}>Show messages</Button>
 <br/>
 <br/>

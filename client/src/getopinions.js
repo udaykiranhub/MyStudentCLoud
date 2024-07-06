@@ -53,7 +53,7 @@ catch(err){
 <Container>
 
 <center>
-  <h3>Group Chat</h3>
+  <h3>Group Chat.....</h3>
   {load && <ColorSpinner/>}
   </center>
         <Row>
@@ -61,14 +61,15 @@ catch(err){
         {Messages && Messages.length > 0 ? (
     
     Messages.map((user, index) => (
-// setting user Messages with the last message from the suer
+// setting user Messages with the last message from the user
         <Card key={index} className="mb-3">
         <Card.Body>
           <div className="d-flex align-items-center">
             <img src={user.profile} alt="profile" className="rounded-circle me-3" style={{ width: '50px', height: '50px' }} />
             <div>
-              <Card.Title>{user.name}</Card.Title>
-              <Card.Text><strong>Last Message:</strong> {user.messages[user.messages.length - 1]}</Card.Text>
+              <Card.Title><strong>Name:</strong>{user.name}</Card.Title>
+              <Card.Text><strong>Last Message:</strong> {user.messages[user.messages.length - 1]}
+               <p>Total messages:{user.messages.length}</p></Card.Text>
             </div>
           </div>
         </Card.Body>

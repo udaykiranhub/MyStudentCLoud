@@ -2,7 +2,7 @@
 position: relative;
 /* background-color: rgb(13, 12, 12); */
 animation-name:mycard ;
-animation-duration: 1s;
+animation-duration: 2s;
 
 
   }
@@ -23,7 +23,7 @@ animation-duration: 1s;
       }
       100% {
         top: 10px;
-        background-color: black;
+       
 
       }
       

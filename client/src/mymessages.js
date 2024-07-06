@@ -85,11 +85,11 @@ alert("something went wrong in deletemessage!"+err);
           <Card.Body>
             <Card.Title>Messages</Card.Title>
             {load && <ColorSpinner/>}
-            <ListGroup variant="flush">
+            <ListGroup variant="flush" > 
               {Messages.map((msg, idx) => (
-                <ListGroup.Item key={idx}>{msg}  <span></span>
+                <ListGroup.Item key={idx} style={{"display":"flex"}}>{idx+1} <span>.</span>{msg} 
    
-                <Button variant="dark"  size="sm" onClick={()=>{Delmess(id,msg)}}>
+                <Button variant="default"  size="sm" onClick={()=>{Delmess(id,msg)}}>
             <Trash/>
                 </Button>
                 

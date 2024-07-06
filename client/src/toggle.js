@@ -111,9 +111,10 @@ function Toggle() {
 
           {/* <MenuItem><li ><Link to="/">Home</Link></li></MenuItem> */}
           {/* <MenuItem><li ><Link to="/about">About us</Link></li></MenuItem> */}
+          <MenuItem><li><Link to="/getopinions"><Messenger/></Link></li><p style={{color:"white"}}>Messages</p></MenuItem>
           <MenuItem><li><Link to="/about"><ChatFill/></Link></li><p style={{color:"white"}}>About</p></MenuItem>
        
-          <MenuItem><li><Link to="/getopinions"><Messenger/></Link></li><p style={{color:"white"}}>Messages</p></MenuItem>
+
      
         </MenuList>
       </Sidebar>
