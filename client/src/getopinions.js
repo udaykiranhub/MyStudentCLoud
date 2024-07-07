@@ -5,7 +5,11 @@ import {Container,Row,Col} from "react-bootstrap";
 import ColorSpinner from "./colorSpinner";
 import { Card, ListGroup } from 'react-bootstrap'; 
 import {backend_url} from "./path";
+
+
 function Getopinions(){
+
+
 
  const [Messages,setMessages]=useState([]);
  const [load ,setLoad]=useState(false);
@@ -47,6 +51,11 @@ catch(err){
 }
 
  } ,[])
+
+
+
+//handling coplete error
+
 
     return(
         <>

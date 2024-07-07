@@ -94,26 +94,77 @@ function Toggle() {
       </HamburgerContainer>
       <Sidebar isOpen={isOpen}>
         <MenuList style={{backgroundColor:"black"}}>
-        <MenuItem><li><Link to="/"><House/></Link></li><p style={{color:"white"}}>Home</p></MenuItem>
-        <MenuItem><li><Link to="/signup"><PersonAdd/></Link></li><p style={{color:"white"}}>SignUp</p></MenuItem>
-       
-        <MenuItem><li><Link to="/users"><PeopleFill/></Link></li><p style={{color:"white"}}>Users</p></MenuItem>
+        {/* <MenuItem><li><Link to="/"><House/></Link></li><p style={{color:"white"}}>Home</p></MenuItem> */}
 
+        <MenuItem>
+      <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'white' }}>
+        <House />
+        <p style={{ margin: 0, marginLeft: '8px' }}>Home</p>
+      </Link>
+    </MenuItem>
+
+    <MenuItem>
+      <Link to="/users" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'white' }}>
+      <PeopleFill/>
+        <p style={{ margin: 0, marginLeft: '8px' }}>Users</p>
+      </Link>
+    </MenuItem>
+
+        {/* <MenuItem><li><Link to="/users"><PeopleFill/></Link></li><p style={{color:"white"}}>Users</p></MenuItem> */}
+        <MenuItem>
+      <Link to="/getopinions" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'white' }}>
+      <Messenger/>
+        <p style={{ margin: 0, marginLeft: '8px' }}>Messages</p>
+      </Link>
+    </MenuItem>
+
+        {/* <MenuItem><li><Link to="/getopinions"><Messenger/></Link></li><p style={{color:"white"}}>Messages</p></MenuItem> */}
+    
+        <MenuItem>
+      <Link to="/search" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'white' }}>
+      <Search/>
+        <p style={{ margin: 0, marginLeft: '8px' }}>Search</p>
+      </Link>
+    </MenuItem>
+        {/* <MenuItem><li><Link to="/search"><Search/></Link></li><p style={{color:"white"}}>Search</p></MenuItem> */}
         {/* <MenuItem><li><Link to="/users">users</Link></li></MenuItem> */}
           {/* <MenuItem><li><Link to="/login">Login</Link></li></MenuItem> */}
-          <MenuItem><li><Link to="/login"><PersonCheck/></Link></li><p style={{color:"white"}}>Login</p></MenuItem>
+          <MenuItem>
+      <Link to="/login" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'white' }}>
+      <PersonCheck/>
+        <p style={{ margin: 0, marginLeft: '8px' }}>Login</p>
+      </Link>
+    </MenuItem>
+      
+          {/* <MenuItem><li><Link to="/login"><PersonCheck/></Link></li><p style={{color:"white"}}>Login</p></MenuItem> */}
           {/* <MenuItem><li><Link to="/signup">SignUp</Link></li></MenuItem> */}
-          
+          <MenuItem>
+      <Link to="/signup" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'white' }}>
+      <PersonAdd/>
+        <p style={{ margin: 0, marginLeft: '8px' }}>signup</p>
+      </Link>
+    </MenuItem>
+      
+{/* 
+
+          <MenuItem><li><Link to="/signup"><PersonAdd/></Link></li><p style={{color:"white"}}>SignUp</p></MenuItem> */}
 
           {/* <MenuItem><li><Link to="/users">users</Link></li></MenuItem> */}
-          <MenuItem><li><Link to="/search"><Search/></Link></li><p style={{color:"white"}}>Search</p></MenuItem>
+
           {/* <MenuItem><li ><Link to="/search">Search</Link></li></MenuItem> */}
 
           {/* <MenuItem><li ><Link to="/">Home</Link></li></MenuItem> */}
           {/* <MenuItem><li ><Link to="/about">About us</Link></li></MenuItem> */}
-          <MenuItem><li><Link to="/getopinions"><Messenger/></Link></li><p style={{color:"white"}}>Messages</p></MenuItem>
-          <MenuItem><li><Link to="/about"><ChatFill/></Link></li><p style={{color:"white"}}>About</p></MenuItem>
-       
+
+          <MenuItem>
+      <Link to="/about" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'white' }}>
+      <ChatFill/>
+        <p style={{ margin: 0, marginLeft: '8px' }}>About us</p>
+      </Link>
+    </MenuItem>
+
+          {/* <MenuItem><li><Link to="/about"><ChatFill/></Link></li><p style={{color:"white"}}>About</p></MenuItem>
+        */}
 
      
         </MenuList>
